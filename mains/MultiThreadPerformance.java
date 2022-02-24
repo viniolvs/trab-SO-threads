@@ -1,15 +1,18 @@
 package mains;
 import src.*;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class MultiThreadPerformance {
     public static void main(String[] args) throws InterruptedException{
 
-        long begin = System.currentTimeMillis();
 
         RentManager manager = new RentManager();
 
-        int clients = 200;
-        int cars = 50;
+        int clients = 50000;
+        int cars = 50000;
 
         for (int i = 0 ; i < cars; i++) {
             manager.addCar(new Car(i));
@@ -17,18 +20,18 @@ public class MultiThreadPerformance {
         for (int i = 0; i < clients; i++) {
             manager.addClient(new Client(i));
         }
+
+        Semaphore sem = new Semaphore(1);
+        ExecutorService executor = Executors.newFixedThreadPool(8);
+
+        long begin = System.currentTimeMillis();
         for (int i = 0; i < clients; i++) {
-            boolean aux;
-            aux = manager.rentCar(manager.getCars().get(i%cars), manager.getClients().get(i));
-            if(aux)
-                System.out.println(i+" Rent executed!");   
-            else
-                System.out.println(i+" Car already rented!");
+            executor.execute(new RentThread(manager, manager.getCars().get(i%cars), manager.getClients().get(i), sem));    
         }
-        
-       
-    
+        executor.shutdown();
+        while (!executor.awaitTermination(24L, TimeUnit.MILLISECONDS)); //espera threads terminarem para continuar a execução
         long end = System.currentTimeMillis();
-        System.out.println("Levou "+(end-begin)+" milisegundos");
+        
+        System.out.println("Executed in "+(end-begin)+" milisegundos");
     }
 }

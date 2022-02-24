@@ -16,7 +16,7 @@ public class Car {
     public int getID() {
         return carID;
     }
-    public String getTitle() {
+    public String getModel() {
         return model;
     }
     public int getYear() {

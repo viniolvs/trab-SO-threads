@@ -26,10 +26,10 @@ public class RentThread implements Runnable{
         
         if(aux == false){
             manager.rentCar(car, client);
-            System.out.println("Rented "+car.getTitle()+" to "+client.getName());
+            //System.out.println(car.getModel()+" rented to "+client.getName());
         }
-        else
-            System.out.println("Car already rented!");
+        //else
+            //System.out.println("Car already rented!");
         sem.release();
     }
 }
