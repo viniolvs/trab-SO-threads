@@ -7,9 +7,9 @@ public class SingleThreadPerformance {
 
 
         RentManager manager = new RentManager();
-
-        int clients = 50000;
-        int cars = 50000;
+        int n = 50000;
+        int clients = n;
+        int cars = n;
 
         for (int i = 0 ; i < cars; i++) {
             manager.addCar(new Car(i));
