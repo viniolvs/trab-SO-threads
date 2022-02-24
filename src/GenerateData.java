@@ -13,7 +13,7 @@ public class GenerateData {
     }
     
     public static String getModel(int ID) {
-        return "model "+ Integer.toString(ID);
+        return "car "+ Integer.toString(ID);
     }
     public static String getColor(int ID) {
         if (ID%2 == 0) 
