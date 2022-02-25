@@ -10,7 +10,7 @@ public class MultiThreadPerformance {
 
 
         RentManager manager = new RentManager();
-        int n = 50000;
+        int n = 100000;
         int clients = n;
         int cars = n;
 
@@ -22,7 +22,7 @@ public class MultiThreadPerformance {
         }
 
         Semaphore sem = new Semaphore(1);
-        ExecutorService executor = Executors.newFixedThreadPool(8);
+        ExecutorService executor = Executors.newFixedThreadPool(4);
 
         long begin = System.currentTimeMillis();
         for (int i = 0; i < clients; i++) {
