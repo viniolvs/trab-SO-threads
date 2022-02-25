@@ -3,9 +3,7 @@ package mains;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-
 import src.*;
-
 
 public class ExclusionTest {
     public static void main(String[] args) throws InterruptedException{
@@ -22,5 +20,4 @@ public class ExclusionTest {
         executor.execute(new RentThread(manager, manager.getCars().get(0), manager.getClients().get(1), sem));
         executor.shutdown();   
     }
-    
 }

@@ -6,7 +6,7 @@ import java.util.Random;
 public class GenerateData {
     private static final Random random = new Random();
 
-    //Book data
+    //Car data
     public static int getYear() {
         int year = random.nextInt((2022-2000)+1)+2000;
         return year;
@@ -22,8 +22,7 @@ public class GenerateData {
             return "Black";
     }
     
-
-    //clientdata
+    //client data
     public static String getName(int ID) {
         return "client "+ Integer.toString(ID);
     }

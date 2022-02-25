@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 public class MultiThreadPerformance {
     public static void main(String[] args) throws InterruptedException{
 
-
         RentManager manager = new RentManager();
         int n = 100000;
         int clients = n;

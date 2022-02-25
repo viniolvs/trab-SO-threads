@@ -12,7 +12,6 @@ public class Car {
         year = GenerateData.getYear();
         color = GenerateData.getColor(ID);
     }
-
     public int getID() {
         return carID;
     }
