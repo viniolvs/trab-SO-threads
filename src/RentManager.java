@@ -30,10 +30,11 @@ public class RentManager {
     }
     
     public boolean rentCar (Car car, Client client){
-        if(verifieRent(car) == true){
+        if(verifieRent(car) == true || client.getRentedCar()>=1){
             return false;
         }
         else{
+            client.addCar();
             rents.add(new Rent(car, client));
             return true;
         }
