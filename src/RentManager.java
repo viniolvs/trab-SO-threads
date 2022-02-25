@@ -30,7 +30,6 @@ public class RentManager {
     }
     
     public boolean rentCar (Car car, Client client){
-        
         if(verifieRent(car) == true){
             return false;
         }

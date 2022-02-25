@@ -9,7 +9,7 @@ public class MultiThreadPerformance {
     public static void main(String[] args) throws InterruptedException{
 
         RentManager manager = new RentManager();
-        int n = 100000;
+        int n = 200000;
         int clients = n;
         int cars = n;
 
@@ -21,7 +21,7 @@ public class MultiThreadPerformance {
         }
 
         Semaphore sem = new Semaphore(1);
-        ExecutorService executor = Executors.newFixedThreadPool(4);
+        ExecutorService executor = Executors.newFixedThreadPool(8);
 
         long begin = System.currentTimeMillis();
         for (int i = 0; i < clients; i++) {

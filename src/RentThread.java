@@ -22,14 +22,14 @@ public class RentThread implements Runnable{
         } catch (InterruptedException e) {
             System.err.println("Interrupted Exception Rent Thread");
         }
-        boolean aux = manager.verifieRent(car);
-        
-        if(aux == false){
-            manager.rentCar(car, client);
-            //System.out.println(car.getModel()+" rented to "+client.getName());
-        }
-        //else
-            //System.out.println("Car already rented!");
+        boolean aux;
+        aux = manager.rentCar(car, client);
         sem.release();
+
+        /*if(aux == true){
+            System.out.println(car.getModel()+" rented to "+client.getName());
+        }
+        else
+            System.out.println("Car already rented!"); */
     }
 }

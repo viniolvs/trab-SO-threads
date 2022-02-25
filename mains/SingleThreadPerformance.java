@@ -6,7 +6,7 @@ public class SingleThreadPerformance {
     public static void main(String[] args) {
 
         RentManager manager = new RentManager();
-        int n = 100000;
+        int n = 200000;
         int clients = n;
         int cars = n;
 
